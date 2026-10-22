@@ -2,33 +2,159 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>digi</title>
-<style>
-body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;background:#f6f7f9;color:#222}
-header{background:#000;color:#a855f7;padding:3rem 1.5rem;text-align:center}
-header h1{margin:0;font-size:2.4rem}
-header p{margin:.5rem 0 0;opacity:.85}
-main{max-width:760px;margin:2rem auto;padding:0 1.5rem}
-section{background:#fff;border-radius:10px;padding:1.5rem 2rem;margin-bottom:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,.08)}
-h2{margin-top:0;color:#1f3a5f}
-footer{text-align:center;font-size:.85rem;color:#666;padding:2rem 1rem}
-</style>
+<meta name="description" content="Personal site of digi.">
+<meta name="author" content="digi">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f4f2f6">
+<link rel="canonical" href="https://digitalriver-commits.github.io/">
+<meta property="og:title" content="digi">
+<meta property="og:description" content="Personal site of digi.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://digitalriver-commits.github.io/">
+<meta property="og:image" content="https://digitalriver-commits.github.io/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="digi. Personal site.">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="digi">
+<meta name="twitter:description" content="Personal site of digi.">
+<meta name="twitter:image" content="https://digitalriver-commits.github.io/assets/og.png">
+<meta name="twitter:image:alt" content="digi. Personal site.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/icon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/name-math.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/name-ar.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/styles.css">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; script-src 'self' 'unsafe-inline'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "digi",
+  "url": "https://digitalriver-commits.github.io/",
+  "description": "Personal site of digi."
+}
+</script>
+<script>
+document.documentElement.classList.add("js");
+(function () {
+  try {
+    var params = new URLSearchParams(location.search);
+    var query = params.get("theme");
+    var stored = localStorage.getItem("theme");
+    var theme = query === "light" || query === "dark" ? query : stored;
+    if (theme === "light" || theme === "dark") {
+      document.documentElement.setAttribute("data-theme", theme);
+    }
+    var resolved = theme === "light" || theme === "dark"
+      ? theme
+      : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute("content", resolved === "dark" ? "#0e0c11" : "#f4f2f6");
+  } catch (e) {}
+})();
+</script>
+<script src="/theme.js" defer></script>
 </head>
 <body>
-<header>
-<h1>𝒹𝟯𝓰𝟯 aka d1 ج!</h1>
+<!--
+  Content notes for Donald. Nothing in these comments is shown on the page.
+  Visible copy is only what was already published, plus the public GitHub
+  profile that hosts this site. Do not add a street address or phone number.
+
+  1. About Me — "Welcome to my personal site." is the only introduction on
+     the page. Replace it with a few sentences in your own words: who you
+     are, what you do, and what you're interested in. Background given for
+     this refresh, and intentionally not published: field technician /
+     systems integrator. No employer or credential is in the repo, so none
+     was added. Say what, if anything, you want public.
+
+  2. Location — "Palm Bay, Florida" was removed from the header on purpose.
+     Add the city back only if you want it shown, and say where it should sit.
+
+  3. Interests — confirm whether to mention A/V, home automation, networking,
+     and Raspberry Pi. A sentence for each is enough. Say which to leave off.
+
+  4. Notes — this section is an empty shelf. Nothing in the repo describes a
+     project or write-up, so none is listed. Send titles, a sentence each,
+     and links if you want them here.
+
+  5. Name — the heading is the stylized name you set, and the document title
+     is "digi". An earlier title was "Donald Robertson". Say if that name
+     should appear in the title, the heading, or the about text.
+
+  6. Contact — "Contact details coming soon." is unchanged. The public GitHub
+     profile is linked. Say if the email on your commits
+     (donaldrobertson321@gmail.com) should be listed, or send a different
+     address. Do not send a phone number unless you want it on this page.
+-->
+<a class="skip" href="#main">Skip to content</a>
+<div class="signal" aria-hidden="true"></div>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/#top">digi</a>
+    <nav class="nav" aria-label="Primary">
+      <ul>
+        <li><a href="/#about">About Me</a></li>
+        <li><a href="/#notes">Notes</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to dark theme">
+      <svg class="icon icon-moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+        <path fill="currentColor" d="M14.6 3.1a8.3 8.3 0 1 0 6.4 13.3A7.1 7.1 0 1 1 14.6 3.1z"/>
+      </svg>
+      <svg class="icon icon-sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+        <circle cx="12" cy="12" r="3.6" fill="currentColor"/>
+        <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M12 2.4v2.3M12 19.3v2.3M2.4 12h2.3M19.3 12h2.3M4.8 4.8l1.6 1.6M17.6 17.6l1.6 1.6M19.2 4.8l-1.6 1.6M6.4 17.6 4.8 19.2"/>
+        </g>
+      </svg>
+    </button>
+  </div>
 </header>
-<main>
-<section>
-<h2>About Me</h2>
-<p>Welcome to my personal site. This is a placeholder introduction. Edit this paragraph to share a bit about who you are, what you do, and what you're interested in.</p>
-</section>
-<section>
-<h2>Contact</h2>
-<p>Contact details coming soon.</p>
-</section>
+<main id="main" tabindex="-1">
+  <div class="wrap">
+    <div class="hero" id="top">
+      <h1>
+        <span class="visually-hidden">d3g3 aka d1 <span lang="ar">ج</span>!</span>
+        <span class="display-name" aria-hidden="true" translate="no">𝒹𝟯𝓰𝟯 aka d1 <span class="name-ar" lang="ar">ج</span>!</span>
+      </h1>
+      <div class="rule" aria-hidden="true"></div>
+    </div>
+
+    <section class="section" id="about" aria-labelledby="about-heading">
+      <p class="index" aria-hidden="true">01</p>
+      <h2 id="about-heading">About Me</h2>
+      <!-- Donald: replace the next paragraph. See content note 1 at the top of this file. -->
+      <p>Welcome to my personal site.</p>
+    </section>
+
+    <section class="section" id="notes" aria-labelledby="notes-heading">
+      <p class="index" aria-hidden="true">02</p>
+      <h2 id="notes-heading">Notes</h2>
+      <!-- Donald: replace the next paragraph with real notes or remove the section. See content note 4. -->
+      <p>Nothing posted yet.</p>
+    </section>
+
+    <section class="section" id="contact" aria-labelledby="contact-heading">
+      <p class="index" aria-hidden="true">03</p>
+      <h2 id="contact-heading">Contact</h2>
+      <!-- Donald: replace the coming-soon line when you have a public contact method. See content note 6. No phone number or street address. -->
+      <p>Contact details coming soon.</p>
+      <p><a rel="me" href="https://github.com/digitalriver-commits">digitalriver-commits on GitHub</a></p>
+    </section>
+  </div>
 </main>
-<footer>Hosted on GitHub Pages.</footer>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Hosted on GitHub Pages.</p>
+  </div>
+</footer>
 </body>
 </html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found — digi</title>
+<meta name="description" content="That page isn't on this site.">
+<meta name="robots" content="noindex">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f4f2f6">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/icon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="/styles.css">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; script-src 'self' 'unsafe-inline'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+<script>
+document.documentElement.classList.add("js");
+(function () {
+  try {
+    var params = new URLSearchParams(location.search);
+    var query = params.get("theme");
+    var stored = localStorage.getItem("theme");
+    var theme = query === "light" || query === "dark" ? query : stored;
+    if (theme === "light" || theme === "dark") {
+      document.documentElement.setAttribute("data-theme", theme);
+    }
+    var resolved = theme === "light" || theme === "dark"
+      ? theme
+      : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute("content", resolved === "dark" ? "#0e0c11" : "#f4f2f6");
+  } catch (e) {}
+})();
+</script>
+<script src="/theme.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="signal" aria-hidden="true"></div>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/#top">digi</a>
+    <nav class="nav" aria-label="Primary">
+      <ul>
+        <li><a href="/#about">About Me</a></li>
+        <li><a href="/#notes">Notes</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to dark theme">
+      <svg class="icon icon-moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+        <path fill="currentColor" d="M14.6 3.1a8.3 8.3 0 1 0 6.4 13.3A7.1 7.1 0 1 1 14.6 3.1z"/>
+      </svg>
+      <svg class="icon icon-sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+        <circle cx="12" cy="12" r="3.6" fill="currentColor"/>
+        <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M12 2.4v2.3M12 19.3v2.3M2.4 12h2.3M19.3 12h2.3M4.8 4.8l1.6 1.6M17.6 17.6l1.6 1.6M19.2 4.8l-1.6 1.6M6.4 17.6 4.8 19.2"/>
+        </g>
+      </svg>
+    </button>
+  </div>
+</header>
+<main id="main" class="missing" tabindex="-1">
+  <div class="wrap">
+    <h1>Page not found</h1>
+    <p>That page isn't on this site.</p>
+    <p><a href="/">Back to the home page</a></p>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Hosted on GitHub Pages.</p>
+  </div>
+</footer>
+</body>
+</html>
